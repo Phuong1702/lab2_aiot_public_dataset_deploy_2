@@ -20,8 +20,6 @@ Public dataset / fallback sample
 → test API /predict
 ```
 
-Dataset chính: **UCI Occupancy Detection**.  
-Khi máy có Internet, script sẽ tải dữ liệu từ GitHub mirror của tác giả. Nếu lớp học không có Internet, project tự dùng file fallback cùng schema để sinh viên vẫn chạy được end-to-end.
 
 ## 2. Cấu trúc thư mục
 
@@ -128,20 +126,3 @@ Kết quả đúng sẽ có dòng:
 API TEST PASSED: FastAPI model deployment is working.
 ```
 
-## 7. Kiểm tra thế nào là hoàn thành?
-
-Sinh viên hoàn thành bài mẫu khi:
-
-1. Notebook chạy hết không lỗi.
-2. Có model `models/occupancy_baseline.joblib`.
-3. Có `outputs/metrics.json` với accuracy, precision, recall, f1.
-4. Có `outputs/decision_log.csv` gồm `occupancy_probability`, `anomaly_score`, `is_anomaly`, `decision`, `command_hint`.
-5. Chạy được FastAPI và truy cập được `/docs`.
-6. Chạy `python src/test_api.py` thành công.
-7. Giải thích được luồng: telemetry → features → model → decision → command hint.
-
-## 8. Lưu ý
-
-- Lab này chỉ deploy local để sinh viên hiểu model deployment cơ bản.
-- Lab 5 sẽ phát triển inference service đầy đủ hơn: versioning, logging, validation, monitoring, API contract.
-- Không cần lập trình ESP/MQTT ở Lab 2. Telemetry được lấy từ dataset công khai hoặc fallback sample.
